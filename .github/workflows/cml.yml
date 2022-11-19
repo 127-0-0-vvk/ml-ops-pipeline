@@ -6,12 +6,10 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v3
-      - name: Write CML report
+      - name: cml_run
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: iterative/setup-cml@v1
-      - name: Train model
+          
         run: |
           pip install -r requirements.txt
           python train.py
